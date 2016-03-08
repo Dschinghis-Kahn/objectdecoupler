@@ -5,7 +5,7 @@
   <version>1.1-SNAPSHOT</version>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>A queue that handles added object asynchronously.</description>
-  <url>https://github.com/Dschinghis-Kahn/objectdecoupler</url>
+  <url>https://github.com/Dschinghis-Kahn/${project.artifactId}</url>
   <licenses>
     <license>
       <name>GNU lesser general public license</name>
@@ -19,9 +19,9 @@
     </developer>
   </developers>
   <scm>
-    <url>https://github.com/Dschinghis-Kahn/objectdecoupler</url>
-    <developerConnection>scm:git:ssh://git@github.com/Dschinghis-Kahn/objectdecoupler.git</developerConnection>
-    <connection>scm:git:ssh://git@github.com/Dschinghis-Kahn/objectdecoupler.git</connection>
+    <url>https://github.com/Dschinghis-Kahn/${project.artifactId}</url>
+    <developerConnection>scm:git:ssh://git@github.com/Dschinghis-Kahn/${project.artifactId}.git</developerConnection>
+    <connection>scm:git:ssh://git@github.com/Dschinghis-Kahn/${project.artifactId}.git</connection>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
