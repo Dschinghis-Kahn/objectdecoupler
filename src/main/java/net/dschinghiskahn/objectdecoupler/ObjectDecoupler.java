@@ -3,8 +3,6 @@ package net.dschinghiskahn.objectdecoupler;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import net.dschinghiskahn.objectstore.ObjectStore;
 import net.dschinghiskahn.worker.AbstractWorker;
 
@@ -16,7 +14,6 @@ import net.dschinghiskahn.worker.AbstractWorker;
  */
 public class ObjectDecoupler<E> {
 
-    private final Logger logger = Logger.getLogger(getClass()); // NOPMD
     private final ObjectStore<E> objectStore;
     private final List<IObjectReceiver<E>> objectReceivers;
     private final ObjectDistributor<E> worker;
@@ -40,11 +37,12 @@ public class ObjectDecoupler<E> {
      */
     public void add(E object) {
         objectStore.add(object);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Object added");
-        }
         worker.wakeUpAllWorkers();
+        hookObjectAdded();
     }
+
+	protected void hookObjectAdded() {
+	}
 
     protected E get() {
         return objectStore.get();

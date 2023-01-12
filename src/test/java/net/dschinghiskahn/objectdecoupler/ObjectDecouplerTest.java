@@ -1,6 +1,5 @@
 package net.dschinghiskahn.objectdecoupler;
 
-import org.apache.logging.log4j.LogManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,7 +20,7 @@ public class ObjectDecouplerTest implements IObjectReceiver<Integer> {
         try {
             Thread.sleep(2);
         } catch (InterruptedException e) {
-            LogManager.getLogger(getClass()).error("Error while sleeping!", e);
+            System.err.println(getClass().getSimpleName()+" - Error while sleeping!\n" + e.getLocalizedMessage());
         }
     }
 
@@ -40,7 +39,7 @@ public class ObjectDecouplerTest implements IObjectReceiver<Integer> {
 
     @Test(timeout = 1000)
     public void fewIntegers() throws InterruptedException {
-        LogManager.getLogger(getClass()).info("Running test: fewIntegers()");
+        System.out.println(getClass().getSimpleName()+" - Running test: fewIntegers()");
         objectDecoupler.add(0);
         objectDecoupler.add(1);
         objectDecoupler.add(2);
@@ -55,7 +54,7 @@ public class ObjectDecouplerTest implements IObjectReceiver<Integer> {
 
     @Test(timeout = 5000)
     public void manyIntegers() throws InterruptedException {
-    	LogManager.getLogger(getClass()).info("Running test: manyIntegers()");
+    	System.out.println(getClass().getSimpleName()+" - Running test: manyIntegers()");
         for (int i = 0; i < 1050; i++) {
             objectDecoupler.add(i);
         }
